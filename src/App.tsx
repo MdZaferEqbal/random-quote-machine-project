@@ -15,14 +15,14 @@ const randomColorGenerator = ():string => {
   const red   = Math.floor(Math.random() * 128);
   const green = Math.floor(Math.random() * 128);
   const blue  = Math.floor(Math.random() * 128);
-
+  
   return `rgb(${red}, ${green}, ${blue})`
 }
-const transitionTime       = "all 1.5s";
+const transitionTime       = "background-color 1.5s, color 1.5s";
 
 function App() {
-  const [quote, setQuote]             = useState<Quote>(randomQuoteGenerator())  
-  const [randomColor, setRandomColor] = useState<string>(randomColorGenerator());  
+  const [quote, setQuote]             = useState<Quote>({"quote":"When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.","author":"Henry Ford"})  
+  const [randomColor, setRandomColor] = useState<string>('#3E4A57');
   const changeQuote                   = () => {
     setQuote(randomQuoteGenerator());
     setRandomColor(randomColorGenerator());
@@ -33,13 +33,13 @@ function App() {
     <div className="background" style={{backgroundColor: randomColor, transition: transitionTime}}>
       <div id="quote-box">
         <div className="quote-content" style={{color:randomColor, transition: transitionTime}}>
-          <h2 id="text">
-            <FaQuoteLeft size="30" style={{ marginRight: "10px"}}/>
+          <p id="text">
+            <FaQuoteLeft size="25" style={{ marginRight: "10px"}}/>
             {quote.quote}
-          </h2>
-          <h4 id="author">
+          </p>
+          <p id="author">
             - {quote.author}
-          </h4>
+          </p>
         </div>
         <div className="buttons">
           <a target='_top' className='button' id='tweet-quote' 
@@ -64,7 +64,7 @@ function App() {
           </a>
           <button className='button' type='button' id="new-quote" 
             style={{backgroundColor: randomColor, transition: transitionTime}} onClick={changeQuote}>
-            New Quote
+            Generate Random Quote
           </button>
         </div>
       </div>
