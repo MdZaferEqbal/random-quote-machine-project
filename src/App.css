@@ -6,6 +6,11 @@
   align-items: center;
   height: 100vh;
 }
+#text {
+  font-size: 23px;
+  font-weight: 400;
+  text-align: center;
+}
 
 #quote-box {
   width: 500px;
@@ -43,7 +48,16 @@ button, a {
   background: #444;
 }
 
+a:hover {
+  transition: 0s;
+  opacity: 0.8;
+}
+button:hover {
+  transition: 0s;
+  opacity: 0.8;
+}
+
 #new-quote {
   color: white;
-  float: right;
+  cursor: pointer;
 }
